@@ -168,8 +168,9 @@ Keeps local work aligned with project state in Myte.
 Owns:
 
 - reading `MyteCommandCenter/`
-- preparing Myte-ready updates
-- supporting PRD and QA/QC sync flows
+- routing plain-English intent to valid Myte commands
+- running full Myte flows (config/bootstrap/query/QAQC/feedback/suggestions/updates/PRD upload)
+- preparing Myte-ready updates when needed
 
 ## Working Rules
 

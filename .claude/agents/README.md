@@ -18,6 +18,6 @@ In Claude Code chat, call explicitly when needed, for example:
 - "Use implementation-planner for a phased plan and risk map."
 - "Use implementor to execute this approved plan."
 - "Use feature-qa to generate PM test steps and edge cases."
-- "Use myte-sync to draft mission updates."
+- "Use myte-sync to run Myte operations from this request."
 
 Subagents can also be auto-selected if task descriptions match their role descriptions.

@@ -252,10 +252,12 @@ This role connects local work back to Myte context and project state.
 It should help with:
 
 - reading `MyteCommandCenter/`
-- bootstrap interpretation
-- mission and project update drafting
+- full Myte command routing from plain-English intent
+- config/bootstrap/query workflows
+- QAQC run/sync workflows
+- feedback and suggestions workflows
+- mission/team/owner/client update workflows
 - PRD upload workflows
-- QA/QC sync support
 
 ## How The Subagents Work Together
 

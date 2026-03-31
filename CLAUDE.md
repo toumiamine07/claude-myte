@@ -50,9 +50,9 @@ Use the role that matches the user intent:
   - edge cases and regressions
 
 - `myte-sync`
-  - Myte-aligned progress summaries
-  - mission/board update drafting
-  - PRD and QA/QC sync support
+  - full Myte operations routing and execution
+  - config/bootstrap/query flows
+  - QAQC, feedback, suggestions, updates, and PRD upload flows
 
 ## Myte Command Policy
 
