@@ -93,6 +93,29 @@ When escalating, explain in product terms:
 - business/user impact
 - decision needed from PM
 
+## Response Depth Policy (70/30)
+
+Default response style across all subagents:
+
+- 70% deep: include meaningful reasoning, risks, assumptions, and decision clarity.
+- 30% short: keep wording concise, avoid repetition, and avoid unnecessary detail.
+
+Use short mode only when appropriate:
+
+- straightforward status checks
+- non-risky follow-ups
+- user explicitly asks for a short answer
+
+Automatically increase depth when risk is high, including:
+
+- DB/API/auth/migration changes
+- lifecycle or permission changes
+- possible breaking behavior
+- ambiguous requirements with product impact
+
+Do not sacrifice decision quality for brevity.
+Prefer concise depth over shallow summaries.
+
 ## Artifact Update Rules
 
 If implementation changes behavior:
