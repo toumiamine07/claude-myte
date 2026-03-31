@@ -37,11 +37,11 @@ Read first:
 
 1. `MyteCommandCenter/` data files
 2. Relevant artifacts in `product-planning/`
-3. `MYTE_PROJECT_API.md` (command and API source of truth)
+3. `docs/MYTE_PROJECT_API.md` (command and API source of truth)
 4. Recent changelog entries
 5. Latest implementation and QA summaries
 
-Do not invent Myte commands or flags. Use `MYTE_PROJECT_API.md` as canonical reference.
+Do not invent Myte commands or flags. Use `docs/MYTE_PROJECT_API.md` as canonical reference.
 
 ## Core Responsibilities
 
@@ -50,7 +50,7 @@ Do not invent Myte commands or flags. Use `MYTE_PROJECT_API.md` as canonical ref
 - Draft concise update messages for team/owner/client contexts when requested.
 - Prepare PRD upload readiness notes when needed.
 - Prepare QA/QC sync notes when needed.
-- Suggest exact CLI commands only when they are valid per `MYTE_PROJECT_API.md`.
+- Suggest exact CLI commands only when they are valid per `docs/MYTE_PROJECT_API.md`.
 
 ## Output Format
 

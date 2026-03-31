@@ -4,6 +4,26 @@ Reusable Claude Code package for product managers and builders.
 
 This project is meant to become a GitHub package plus installer that can be dropped into a new or existing project so Claude can support product strategy, PRDs, planning, implementation, QA, changelogs, and Myte sync in one consistent workflow.
 
+## Quick Start (New Project)
+
+From the root of your new project folder, run:
+
+```bash
+tmp="$(mktemp -d)" && \
+git clone --depth 1 --branch main git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
+"$tmp/toolkit/install.sh" --target "$PWD" && \
+rm -rf "$tmp"
+```
+
+Install a specific version tag:
+
+```bash
+tmp="$(mktemp -d)" && \
+git clone --depth 1 --branch v0.1.0 git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
+"$tmp/toolkit/install.sh" --target "$PWD" && \
+rm -rf "$tmp"
+```
+
 ## What This Project Is
 
 This system is designed around one simple setup:
@@ -198,11 +218,16 @@ backend/
 frontend/
   CHANGELOG.md
 MyteCommandCenter/
-PROMPT_LIBRARY.md
-WORKING_STYLE_PATTERN.md
-WORKING_STYLE_RULES.md
-SYSTEM_BLUEPRINT.md
-MYTE_PROJECT_API.md
+docs/
+  MYTE_PROJECT_API.md
+  SYSTEM_BLUEPRINT.md
+  WORKING_STYLE_PATTERN.md
+  WORKING_STYLE_RULES.md
+  RELEASE.md
+prompts/
+  PROMPT_LIBRARY.md
+  MYTE_AGENT_QUICK_PROMPT.md
+  MYTE_INSTRUCTION_UPDATE_PROMPT.md
 README.md
 ```
 
@@ -273,7 +298,7 @@ Option A (recommended one-liner from any target project directory):
 
 ```bash
 tmp="$(mktemp -d)" && \
-git clone --depth 1 --branch main git@github.com:<owner>/<repo>.git "$tmp/toolkit" && \
+git clone --depth 1 --branch main git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
 "$tmp/toolkit/install.sh" --target "$PWD" && \
 rm -rf "$tmp"
 ```
@@ -282,7 +307,7 @@ Install a tagged version:
 
 ```bash
 tmp="$(mktemp -d)" && \
-git clone --depth 1 --branch v0.1.0 git@github.com:<owner>/<repo>.git "$tmp/toolkit" && \
+git clone --depth 1 --branch v0.1.0 git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
 "$tmp/toolkit/install.sh" --target "$PWD" && \
 rm -rf "$tmp"
 ```
@@ -290,7 +315,7 @@ rm -rf "$tmp"
 Option B (using local bootstrap helper from this toolkit):
 
 ```bash
-./bootstrap.sh --repo git@github.com:<owner>/<repo>.git --ref main --target /path/to/project
+./bootstrap.sh --repo git@github.com:toumiamine07/claude-skills---toumi.git --ref main --target /path/to/project
 ```
 
 Useful flags:
@@ -301,9 +326,13 @@ Useful flags:
 ## Files In This Repo
 
 - `README.md`: high-level project overview
-- `SYSTEM_BLUEPRINT.md`: detailed operating model
-- `WORKING_STYLE_PATTERN.md`: rough observed pattern draft
-- `WORKING_STYLE_RULES.md`: extracted actionable rules from the pattern draft
-- `PROMPT_LIBRARY.md`: reusable prompts outside the subagents
-- `MYTE_PROJECT_API.md`: Myte API and CLI reference
+- `docs/SYSTEM_BLUEPRINT.md`: detailed operating model
+- `docs/WORKING_STYLE_PATTERN.md`: rough observed pattern draft
+- `docs/WORKING_STYLE_RULES.md`: extracted actionable rules from the pattern draft
+- `docs/MYTE_PROJECT_API.md`: Myte API and CLI reference
+- `docs/RELEASE.md`: release and tagging flow
+- `prompts/PROMPT_LIBRARY.md`: reusable prompts outside the subagents
+- `prompts/MYTE_AGENT_QUICK_PROMPT.md`: plain-English Myte command router prompt
+- `prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md`: Myte instruction refresh prompt
 - `install.sh`: installer script for applying this system to a project
+- `bootstrap.sh`: helper that clones toolkit repo and runs installer into a target path

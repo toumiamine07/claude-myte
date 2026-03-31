@@ -58,7 +58,7 @@ Use the role that matches the user intent:
 
 For any Myte-related work:
 
-1. Read `MYTE_PROJECT_API.md` first.
+1. Read `docs/MYTE_PROJECT_API.md` first.
 2. Use only documented commands/flags/endpoints from that file.
 3. Do not invent CLI commands.
 4. If a required env var or prerequisite is missing, state it before suggesting execution.
@@ -126,7 +126,7 @@ After implementation, always return:
 
 Reusable prompts live in:
 
-- `PROMPT_LIBRARY.md`
+- `prompts/PROMPT_LIBRARY.md`
 
 Use that file for fast prompt reuse and iterative refinement outside subagent definitions.
 

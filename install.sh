@@ -123,11 +123,11 @@ main() {
 
   # Core docs and prompts
   copy_file "$SOURCE_ROOT/CLAUDE.md" "CLAUDE.md"
-  copy_file "$SOURCE_ROOT/PROMPT_LIBRARY.md" "PROMPT_LIBRARY.md"
-  copy_file "$SOURCE_ROOT/MYTE_PROJECT_API.md" "MYTE_PROJECT_API.md"
-  copy_file "$SOURCE_ROOT/MYTE_AGENT_QUICK_PROMPT.md" "MYTE_AGENT_QUICK_PROMPT.md"
-  copy_file "$SOURCE_ROOT/MYTE_INSTRUCTION_UPDATE_PROMPT.md" "MYTE_INSTRUCTION_UPDATE_PROMPT.md"
-  copy_file "$SOURCE_ROOT/WORKING_STYLE_RULES.md" "WORKING_STYLE_RULES.md"
+  copy_file "$SOURCE_ROOT/prompts/PROMPT_LIBRARY.md" "prompts/PROMPT_LIBRARY.md"
+  copy_file "$SOURCE_ROOT/prompts/MYTE_AGENT_QUICK_PROMPT.md" "prompts/MYTE_AGENT_QUICK_PROMPT.md"
+  copy_file "$SOURCE_ROOT/prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md" "prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md"
+  copy_file "$SOURCE_ROOT/docs/MYTE_PROJECT_API.md" "docs/MYTE_PROJECT_API.md"
+  copy_file "$SOURCE_ROOT/docs/WORKING_STYLE_RULES.md" "docs/WORKING_STYLE_RULES.md"
 
   # Subagents and workspace scaffold
   copy_tree_files ".claude/agents"

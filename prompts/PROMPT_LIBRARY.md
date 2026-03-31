@@ -212,9 +212,9 @@ Use when Myte CLI/API behavior has changed and project docs or subagent rules ne
 Myte has changed. Refresh this project's Myte instruction system.
 
 Inputs to use:
-- Existing `MYTE_PROJECT_API.md`
+- Existing `docs/MYTE_PROJECT_API.md`
 - Any new Myte release notes/changelog/text I provide in this chat
-- Current files that depend on Myte behavior (at least: `CLAUDE.md`, `.claude/agents/myte-sync.md`, `PROMPT_LIBRARY.md`, `README.md`, `SYSTEM_BLUEPRINT.md`)
+- Current files that depend on Myte behavior (at least: `CLAUDE.md`, `.claude/agents/myte-sync.md`, `prompts/PROMPT_LIBRARY.md`, `README.md`, `docs/SYSTEM_BLUEPRINT.md`)
 
 Your tasks:
 
@@ -226,7 +226,7 @@ Your tasks:
    - use documented commands only
    - remove deprecated/invalid commands
    - add new supported commands
-6. Add a short "What Changed" summary section to `MYTE_PROJECT_API.md` with date and key deltas
+6. Add a short "What Changed" summary section to `docs/MYTE_PROJECT_API.md` with date and key deltas
 7. Return:
    - files updated
    - key changes
@@ -250,7 +250,7 @@ I will describe what I want in plain language.
 Your job:
 
 1. Interpret my intent.
-2. Map it to the correct `npx myte ...` command(s) using `MYTE_PROJECT_API.md`.
+2. Map it to the correct `npx myte ...` command(s) using `docs/MYTE_PROJECT_API.md`.
 3. Keep command sequence minimal and in correct order.
 4. Ask only for truly missing required inputs (mission ids, subject, body file path, query text, etc.).
 5. Never invent commands or flags.

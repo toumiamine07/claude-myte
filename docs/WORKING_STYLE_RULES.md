@@ -1,6 +1,6 @@
 # Working Style Rules
 
-This document extracts the most operationally useful rules from `WORKING_STYLE_PATTERN.md`.
+This document extracts the most operationally useful rules from `docs/WORKING_STYLE_PATTERN.md`.
 
 It is meant to turn rough observed patterns into practical guidance for the system.
 

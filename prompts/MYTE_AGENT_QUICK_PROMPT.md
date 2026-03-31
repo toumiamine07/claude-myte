@@ -9,7 +9,7 @@ I will describe what I want in plain language.
 Your job:
 
 1. Interpret my intent.
-2. Map it to the correct `npx myte ...` command(s) using `MYTE_PROJECT_API.md`.
+2. Map it to the correct `npx myte ...` command(s) using `docs/MYTE_PROJECT_API.md`.
 3. Keep command sequence minimal and in correct order.
 4. Ask only for truly missing required inputs (mission ids, subject, body file path, query text, etc.).
 5. Never invent commands or flags.
