@@ -24,6 +24,73 @@ git clone --depth 1 --branch v0.1.0 git@github.com:toumiamine07/claude-skills---
 rm -rf "$tmp"
 ```
 
+## How To Use (Step-by-Step)
+
+1. Open your project folder and install this toolkit.
+2. Make sure Claude can see project context:
+   - keep product artifacts in `product-planning/`
+   - keep Myte context in `MyteCommandCenter/` when available
+3. Start with strategy:
+   - "Use `product-strategy` to turn this messy note into options and a PRD draft."
+4. Plan implementation:
+   - "Use `implementation-planner` to create phased delivery with risks and done criteria."
+5. Execute:
+   - "Use `implementor` to build this approved plan and update `product-specs.md`."
+6. Validate:
+   - "Use `feature-qa` to give me step-by-step PM test flow and edge cases."
+7. Run Myte operations when needed:
+   - "Use `myte-sync` to map this request to Myte commands and execute now."
+
+## Use Cases (Examples)
+
+### 1. Messy CEO/Client Notes -> PRD
+
+Prompt:
+
+```text
+Use product-strategy. Turn these messy notes into:
+1) clean summary
+2) options with tradeoffs
+3) PRD draft
+4) open decisions
+```
+
+### 2. Approved PRD -> Safe Plan
+
+Prompt:
+
+```text
+Use implementation-planner. Read this PRD and give me:
+attack surface, phased implementation, risks, and measurable done criteria.
+```
+
+### 3. Plan -> Build + PM Handoff
+
+Prompt:
+
+```text
+Use implementor. Execute this approved plan, update product-planning/product-specs.md,
+then return PM-friendly test steps, expected behavior, edge cases, and regressions.
+```
+
+### 4. Plain English -> Myte Commands
+
+Prompt:
+
+```text
+Use myte-sync. I want to sync feedback, run QAQC for M002 and M004, then post a team update. Execute now.
+```
+
+## Roles (You vs Claude)
+
+| You (Product Manager / Builder) | Claude Role | Main Output |
+|---|---|---|
+| Define goals, constraints, outcomes | `product-strategy` | brainstorms, PRDs, revisions, proposals, audits |
+| Approve direction and scope | `implementation-planner` | phased execution plan, risks, dependencies, done criteria |
+| Confirm product behavior and priorities | `implementor` | code changes, updated `product-specs.md`, PM-ready testing handoff |
+| Validate feature behavior | `feature-qa` | step-by-step functional QA, edge cases, regressions |
+| Ask for Myte actions in plain language | `myte-sync` | valid Myte command routing/execution and PM-friendly sync outputs |
+
 ## What This Project Is
 
 This system is designed around one simple setup:
