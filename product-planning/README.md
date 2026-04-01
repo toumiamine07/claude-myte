@@ -13,6 +13,7 @@ Use it as the project memory that bridges:
 
 - `product-specs.md`: living record of what is actually implemented/in progress
 - `decision-log.md`: key product decisions and scope changes
+- `session-handoff.md`: latest cross-tool handoff snapshot (Claude Code/Codex/Cowork)
 
 ## Subfolders
 
@@ -32,4 +33,3 @@ Use it as the project memory that bridges:
 - Treat `product-specs.md` as actual behavior.
 - If implementation changes the feature, update `product-specs.md`.
 - Keep scope and backlog boundaries explicit.
-

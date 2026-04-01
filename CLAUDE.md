@@ -21,7 +21,19 @@ When present, read in this order:
 2. `product-planning/` (shared strategy and execution workspace)
 3. active PRD(s) and plan(s)
 4. `product-planning/product-specs.md` (actual implementation reality)
-5. latest changelog entries in backend/frontend
+5. `product-planning/decision-log.md`
+6. `product-planning/session-handoff.md` (latest cross-tool context)
+7. latest changelog entries in backend/frontend
+
+## Cross-Tool Switch Protocol
+
+When switching between Claude Code, Codex, or Cowork:
+
+1. Update `product-planning/session-handoff.md` before switching.
+2. Record objective, completed work, in-progress work, blockers, touched files, and next best step.
+3. The new tool must read `product-planning/session-handoff.md` before proceeding.
+4. Continue from the recorded next step.
+5. Do not run concurrent conflicting edits on the same files from multiple tools.
 
 ## Subagent Routing
 

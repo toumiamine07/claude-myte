@@ -41,6 +41,20 @@ rm -rf "$tmp"
 7. Run Myte operations when needed:
    - "Use `myte-sync` to map this request to Myte commands and execute now."
 
+## Switch Protocol (Claude Code <-> Codex)
+
+Use this whenever you switch tools because chat memory does not transfer automatically.
+
+1. Update `product-planning/session-handoff.md` before switching.
+2. Include: objective, completed work, in-progress step, blockers, touched files, next best step.
+3. In the new tool, ask it to read:
+   - `CLAUDE.md`
+   - `product-planning/product-specs.md`
+   - `product-planning/decision-log.md`
+   - `product-planning/session-handoff.md`
+4. Continue from the recorded next step, not from scratch.
+5. Avoid editing the same files from two tools at the same time.
+
 ## Use Cases (Examples)
 
 ### 1. Messy CEO/Client Notes -> PRD
