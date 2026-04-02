@@ -136,6 +136,7 @@ main() {
   # Toolkit trees (auto-pick new docs/prompts without editing installer)
   copy_tree_files "docs"
   copy_tree_files "prompts"
+  copy_tree_files "scripts"
   copy_tree_files ".claude/agents"
 
   # Workspace scaffold

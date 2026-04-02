@@ -95,6 +95,39 @@ Prompt:
 Use myte-sync. I want to sync feedback, run QAQC for M002 and M004, then post a team update. Execute now.
 ```
 
+## Changelog Automation (Per Commit + Daily)
+
+If you want changelogs to stay updated automatically:
+
+1. Install git post-commit hook:
+
+```bash
+./scripts/install_post_commit_hook.sh
+```
+
+This runs `./scripts/sync_changelogs.sh --quiet` after every commit.
+
+2. Run a daily end-of-day sync (cron at 23:00):
+
+```bash
+(crontab -l 2>/dev/null; echo "0 23 * * * cd $PWD && ./scripts/sync_changelogs.sh --quiet") | crontab -
+```
+
+3. Optional dry-run preview:
+
+```bash
+./scripts/sync_changelogs.sh --dry-run
+```
+
+Notes:
+
+- Default areas: `backend,frontend`.
+- Override area names if needed:
+
+```bash
+./scripts/sync_changelogs.sh --areas api,web
+```
+
 ## Roles (You vs Claude)
 
 | You (Product Manager / Builder) | Claude Role | Main Output |
@@ -439,5 +472,8 @@ Useful flags:
 - `prompts/PROMPT_LIBRARY.md`: reusable prompts outside the subagents
 - `prompts/MYTE_AGENT_QUICK_PROMPT.md`: plain-English Myte command router prompt
 - `prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md`: Myte instruction refresh prompt
+- `prompts/ENABLE_CHANGELOG_AUTOMATION_PROMPT.md`: setup prompt for per-commit + daily changelog automation
 - `install.sh`: installer script for applying this system to a project
 - `bootstrap.sh`: helper that clones toolkit repo and runs installer into a target path
+- `scripts/sync_changelogs.sh`: sync/append backend/frontend changelogs from commits
+- `scripts/install_post_commit_hook.sh`: installs git post-commit hook for automatic changelog updates
