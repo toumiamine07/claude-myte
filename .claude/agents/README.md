@@ -21,3 +21,9 @@ In Claude Code chat, call explicitly when needed, for example:
 - "Use myte-sync to run Myte operations from this request."
 
 Subagents can also be auto-selected if task descriptions match their role descriptions.
+
+Across all subagents, use the same preflight discipline:
+
+1. classify the task
+2. build a minimal context set
+3. flag missing/conflicting context before final output

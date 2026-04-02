@@ -35,6 +35,71 @@ Specifically:
 - finished work should come back to the PM in functional language
 - project state should still be able to sync with Myte
 
+## Reliability Architecture (So This Does Not Become Prompt-Only)
+
+This system should operate as a reliability stack, not just a prompt collection:
+
+1. Intent layer
+   The user request is classified (brainstorm, PRD, plan, implement, QA, Myte sync).
+2. Context layer
+   Pull only the minimum high-signal project artifacts needed for that task.
+3. Retrieval layer
+   Route to the right files/folders for the task instead of dumping full project context.
+4. Execution layer
+   Produce decisions, plans, code, QA flows, or sync actions with explicit assumptions.
+5. Evaluation layer
+   Check output quality and drift with repeatable scorecards and acceptance gates.
+
+Without these layers, quality collapses under real workload even with strong prompts.
+
+## Context Contract
+
+For reliable behavior, the package should enforce a context contract:
+
+- define which artifacts are required for each task type
+- define what is optional
+- define stop conditions when required context is missing
+- keep context small and task-specific by default
+- prefer file references over long pasted text
+
+The contract should prioritize:
+
+1. latest project truth (`MyteCommandCenter/` when available)
+2. product truth (`product-planning/` artifacts)
+3. implementation truth (`product-specs.md` and changelogs)
+
+## Retrieval Rules
+
+Retrieval should be scoped by task:
+
+- brainstorming/PRD -> strategy artifacts + relevant Myte mission context
+- planning -> approved PRD + product specs + constraints
+- implementation -> approved plan + active PRD + product specs
+- QA -> expected behavior + changed surfaces + known risks
+- Myte sync -> only documented Myte command/reference artifacts
+
+When context is conflicting or stale, the system should:
+
+- flag conflict explicitly
+- ask only blocking clarification questions
+- avoid pretending certainty
+
+## Quality Gates And Eval Loop
+
+Each stage should have a light gate:
+
+- strategy/PRD gate: scope, non-goals, edge cases, done criteria
+- planning gate: attack surface, phased delivery, risk notes
+- implementation gate: behavior parity, changelogs, product-spec updates
+- QA gate: runnable PM steps, expected outcomes, regressions
+- Myte gate: valid commands only, clear expected outputs
+
+The package should include a recurring eval pass (weekly or per release):
+
+- run a small fixed set of representative tasks
+- score correctness, completeness, actionability, and drift
+- record failures and update docs/prompts/subagents accordingly
+
 ## PM-First Collaboration Model
 
 This system is built for a product manager, not a developer-first workflow.
@@ -340,7 +405,9 @@ frontend/
   CHANGELOG.md
 MyteCommandCenter/
 docs/
+  LLM_RELIABILITY_PLAYBOOK.md
   MYTE_PROJECT_API.md
+  QUALITY_EVAL_SCORECARD_TEMPLATE.md
   SYSTEM_BLUEPRINT.md
   WORKING_STYLE_PATTERN.md
   WORKING_STYLE_RULES.md

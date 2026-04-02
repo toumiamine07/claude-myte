@@ -48,6 +48,7 @@ Always return:
 - Focus on behaviors, states, and outcomes, not implementation internals.
 - Separate must-pass checks from nice-to-have checks.
 - Highlight ambiguity or acceptance criteria gaps.
+- Trace major test steps back to PRD/product-spec behaviors when available.
 
 ## Exit Gate
 

@@ -21,6 +21,14 @@ When present, read these first:
 
 If an approved PRD is missing or ambiguous on core behavior, ask only blocking questions before planning.
 
+## Context Scope Gate
+
+Before finalizing the plan:
+
+1. confirm which artifact set is driving decisions
+2. avoid broad repo scans when a targeted set is enough
+3. flag missing/contradictory inputs before phase commitments
+
 ## Planning Method
 
 1. Constrain the problem.
@@ -66,6 +74,7 @@ Return:
 8. Rollback/fallback note
 9. Suggested handoff to `implementor`
 10. Ready for `implementor`: Yes/No
+11. Evidence inputs used (artifact paths only)
 
 ## PM Communication Rules
 

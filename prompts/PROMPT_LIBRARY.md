@@ -378,3 +378,103 @@ Required process:
    - cron status
    - files created/updated
 ```
+
+## 15. Build Context Pack For A Task
+
+Use before strategy/planning/implementation to avoid noisy context windows.
+
+```text
+Build a scoped context pack for this task.
+
+Task:
+<paste task>
+
+Required behavior:
+1. Classify task type (brainstorm / PRD / planning / implementation / QA / Myte sync).
+2. Select only the minimum relevant files from:
+   - `MyteCommandCenter/`
+   - `product-planning/`
+   - active docs/plans/changelogs
+3. Return:
+   - files selected (with short reason each)
+   - files explicitly excluded (and why)
+   - missing critical context
+   - confidence level (high/medium/low)
+4. If confidence is low, ask only blocking clarification questions.
+
+Do not generate the final artifact yet. Only produce the context pack.
+```
+
+## 16. Retrieval Preflight (Before Final Output)
+
+Use right before final PRD/plan/implementation/QA output.
+
+```text
+Run a retrieval preflight for this task before finalizing output.
+
+Task:
+<paste task>
+
+Return:
+1. Context sources used
+2. Evidence quality check (fresh/stale/conflicting)
+3. Gaps that can change the decision
+4. Blocking questions only (if needed)
+5. Go/No-Go recommendation to proceed
+
+Rules:
+- Do not invent missing facts.
+- If context conflicts, show conflict and propose safest assumption.
+- Keep this concise and operational.
+```
+
+## 17. PRD/Plan Quality Gate
+
+Use after generating a PRD or plan and before handing it to implementation.
+
+```text
+Evaluate this artifact using a quality gate.
+
+Artifact type:
+<PRD or Implementation Plan>
+
+Artifact content:
+<paste or reference file path>
+
+Check and score:
+1. Scope clarity
+2. Non-goals clarity
+3. Workflow and touchpoint coverage
+4. Edge case coverage
+5. Risk visibility
+6. Measurable done criteria
+7. Testability / handoff readiness
+
+Output:
+- pass/fail per check
+- overall score out of 10
+- top 3 fixes required before execution
+- revised "ready for implementor" verdict (Yes/No)
+```
+
+## 18. Weekly Reliability Review
+
+Use weekly to prevent drift and keep package quality high.
+
+```text
+Run a weekly reliability review for our AI product workflow.
+
+Inputs:
+- 3 to 5 recent real tasks (brainstorm, PRD, plan, implementation handoff, QA handoff)
+- corresponding outputs
+
+Return:
+1. What worked well
+2. Failure patterns
+3. Context/retrieval mistakes
+4. Prompt/subagent/doc changes recommended
+5. Priority fixes for next week
+6. Short changelog entry for toolkit evolution
+
+Keep this practical and specific to real outputs, not generic advice.
+```

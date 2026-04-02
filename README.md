@@ -41,6 +41,30 @@ rm -rf "$tmp"
 7. Run Myte operations when needed:
    - "Use `myte-sync` to map this request to Myte commands and execute now."
 
+## Reliability Layer (Why This Is More Than Prompts)
+
+This package is designed to avoid the common failure mode of "prompt-only AI workflows."
+
+It enforces a practical stack:
+
+1. intent classification (what job are we doing)
+2. context contract (what artifacts are required)
+3. scoped retrieval (only relevant files, not full dumps)
+4. role execution (strategy/plan/implement/QA/Myte)
+5. output gates + eval loop (quality checks and drift control)
+
+If you want to harden this further in your org, use:
+
+- `docs/LLM_RELIABILITY_PLAYBOOK.md`
+- `docs/QUALITY_EVAL_SCORECARD_TEMPLATE.md`
+- new reliability prompts in `prompts/PROMPT_LIBRARY.md`
+
+Recommended cadence:
+
+1. before major work: run prompt 15 (context pack)
+2. before handoff to execution: run prompt 17 (quality gate)
+3. weekly: run prompt 18 (reliability review) and fill scorecard template
+
 ## Switch Protocol (Claude Code <-> Codex)
 
 Use this whenever you switch tools because chat memory does not transfer automatically.
@@ -334,7 +358,9 @@ frontend/
   CHANGELOG.md
 MyteCommandCenter/
 docs/
+  LLM_RELIABILITY_PLAYBOOK.md
   MYTE_PROJECT_API.md
+  QUALITY_EVAL_SCORECARD_TEMPLATE.md
   SYSTEM_BLUEPRINT.md
   WORKING_STYLE_PATTERN.md
   WORKING_STYLE_RULES.md
@@ -469,6 +495,8 @@ Useful flags:
 - `docs/WORKING_STYLE_RULES.md`: extracted actionable rules from the pattern draft
 - `docs/MYTE_PROJECT_API.md`: Myte API and CLI reference
 - `docs/RELEASE.md`: release and tagging flow
+- `docs/LLM_RELIABILITY_PLAYBOOK.md`: context/retrieval/eval hardening model
+- `docs/QUALITY_EVAL_SCORECARD_TEMPLATE.md`: repeatable scoring template for quality checks
 - `prompts/PROMPT_LIBRARY.md`: reusable prompts outside the subagents
 - `prompts/MYTE_AGENT_QUICK_PROMPT.md`: plain-English Myte command router prompt
 - `prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md`: Myte instruction refresh prompt

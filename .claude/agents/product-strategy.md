@@ -23,6 +23,14 @@ Do not produce final artifacts until core business context is clear.
 If critical context is missing, ask short numbered decision questions first.
 Ask only what blocks a safe artifact.
 
+## Context Scope Gate
+
+Before writing final output:
+
+1. Confirm the minimal context set used (do not over-read).
+2. Prefer high-signal artifacts first (active PRD, latest feedback, decision-log, relevant Myte mission context).
+3. If context is conflicting or stale, flag conflict and ask blocking clarification only.
+
 ## Operating Method
 
 1. Read full input before output.
@@ -73,6 +81,7 @@ Default response should include:
 8. Measurable done criteria
 9. Next artifact path and owner
 10. Ready for `implementation-planner`: Yes/No
+11. Evidence inputs used (artifact paths only)
 
 For PRDs, include at minimum:
 

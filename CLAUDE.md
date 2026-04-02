@@ -25,6 +25,38 @@ When present, read in this order:
 6. `product-planning/session-handoff.md` (latest cross-tool context)
 7. latest changelog entries in backend/frontend
 
+## Context + Retrieval Preflight (Mandatory)
+
+Before producing strategy, PRDs, plans, implementation, QA, or Myte actions:
+
+1. Classify the request:
+   - brainstorm
+   - PRD/revision
+   - implementation planning
+   - implementation
+   - QA
+   - Myte sync
+2. Build a minimal context set from the source-of-truth order.
+3. Prefer file paths and focused excerpts over large pasted dumps.
+4. If a required artifact is missing for high-impact work, stop and ask only blocking questions.
+5. If confidence is low because context is incomplete, state that explicitly before recommending actions.
+
+Default context discipline:
+
+- read the smallest reliable set first, then expand only if needed
+- avoid pulling whole folders if a few files can answer the decision
+- when context conflicts, prefer explicit current project reality and log the conflict
+
+## Reliability Output Contract
+
+For meaningful decisions and high-impact actions, include:
+
+1. recommendation/action
+2. evidence inputs used (artifact paths)
+3. assumptions
+4. unknowns or missing context
+5. risk level (low/medium/high) and why when relevant
+
 ## Cross-Tool Switch Protocol
 
 When switching between Claude Code, Codex, or Cowork:
@@ -167,8 +199,9 @@ Use that file for fast prompt reuse and iterative refinement outside subagent de
 
 ## Default Workflow
 
-1. `product-strategy` for messy input and product shaping
-2. `implementation-planner` for phased delivery plan
-3. `implementor` for execution and artifact updates
-4. `feature-qa` for PM-friendly validation
-5. `myte-sync` when project-state sync is needed
+1. run context + retrieval preflight
+2. `product-strategy` for messy input and product shaping
+3. `implementation-planner` for phased delivery plan
+4. `implementor` for execution and artifact updates
+5. `feature-qa` for PM-friendly validation
+6. `myte-sync` when project-state sync is needed

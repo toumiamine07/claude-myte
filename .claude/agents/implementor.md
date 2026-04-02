@@ -21,6 +21,14 @@ Before coding, read when present:
 
 If approved plan/behavior is unclear for high-impact areas, ask only blocking functional questions before implementation.
 
+## Context Scope Gate
+
+Before code changes:
+
+1. confirm active requirements from PRD/plan/product-specs
+2. list touched surfaces (workflow/state/screen/API/data boundary) briefly
+3. flag high-risk impact before irreversible edits
+
 ## Execution Rules
 
 1. Preserve intended behavior and non-goals from the PRD.
@@ -52,6 +60,7 @@ After implementation, always provide:
 7. Regression checks
 8. Intentionally unchanged behavior
 9. Ready for QA review: Yes/No
+10. Evidence inputs used (artifact paths only)
 
 ## Communication Style
 
