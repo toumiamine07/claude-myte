@@ -130,16 +130,15 @@ main() {
     log "mode: update (product-planning scaffold skipped)"
   fi
 
-  # Core docs and prompts
+  # Core contract
   copy_file "$SOURCE_ROOT/CLAUDE.md" "CLAUDE.md"
-  copy_file "$SOURCE_ROOT/prompts/PROMPT_LIBRARY.md" "prompts/PROMPT_LIBRARY.md"
-  copy_file "$SOURCE_ROOT/prompts/MYTE_AGENT_QUICK_PROMPT.md" "prompts/MYTE_AGENT_QUICK_PROMPT.md"
-  copy_file "$SOURCE_ROOT/prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md" "prompts/MYTE_INSTRUCTION_UPDATE_PROMPT.md"
-  copy_file "$SOURCE_ROOT/docs/MYTE_PROJECT_API.md" "docs/MYTE_PROJECT_API.md"
-  copy_file "$SOURCE_ROOT/docs/WORKING_STYLE_RULES.md" "docs/WORKING_STYLE_RULES.md"
 
-  # Subagents and workspace scaffold
+  # Toolkit trees (auto-pick new docs/prompts without editing installer)
+  copy_tree_files "docs"
+  copy_tree_files "prompts"
   copy_tree_files ".claude/agents"
+
+  # Workspace scaffold
   if [[ "$UPDATE_MODE" -eq 0 ]]; then
     copy_tree_files "product-planning"
   else

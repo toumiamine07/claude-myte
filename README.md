@@ -369,7 +369,8 @@ Usage:
 
 Current installer behavior:
 
-- installs core docs and prompt files
+- installs full `docs/` tree
+- installs full `prompts/` tree
 - installs subagents into `.claude/agents/`
 - installs `product-planning/` scaffold
 - skips existing files by default unless `--force` is used
