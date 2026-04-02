@@ -329,15 +329,26 @@ Update rules:
 - Keep existing `product-planning/` content intact.
 - Update toolkit-managed files only (CLAUDE rules, subagents, prompts, docs/rules files).
 - Run a dry-run first, then apply update.
+- Detect installer capability first:
+  - if `--update` exists, use update flow
+  - if `--update` is missing, use compatibility fallback (backup + force + restore)
 
 Required process:
-1. Run dry-run update:
-   - install.sh --update --dry-run
-2. Show planned file changes.
-3. Ask for confirmation.
-4. Apply update:
-   - install.sh --update --force
-5. Return summary:
+1. Check installer flags (`install.sh --help`) and confirm whether `--update` exists.
+2. If `--update` exists:
+   - run dry-run: `install.sh --update --dry-run`
+   - show planned changes
+   - ask for confirmation
+   - apply: `install.sh --update --force`
+3. If `--update` is missing:
+   - create backup folder: `migration-backup/<timestamp>/`
+   - backup `product-planning/`
+   - run dry-run with force: `install.sh --dry-run --force`
+   - show planned overwrite
+   - ask for confirmation
+   - apply: `install.sh --force`
+   - restore backed up `product-planning/` content
+4. Return summary:
    - files updated
    - files skipped
    - any merge risk
