@@ -362,6 +362,9 @@ Usage:
 
 # Overwrite existing files
 ./install.sh --target /path/to/repo --force
+
+# Update toolkit-managed files only (do not touch product-planning scaffold)
+./install.sh --target /path/to/repo --update --force
 ```
 
 Current installer behavior:
@@ -371,6 +374,7 @@ Current installer behavior:
 - installs `product-planning/` scaffold
 - skips existing files by default unless `--force` is used
 - changelog file creation remains manual per project naming conventions
+- `--update` mode skips `product-planning/` scaffold so existing planning docs are preserved
 
 ## Private GitHub Install
 
@@ -382,6 +386,24 @@ Option A (recommended one-liner from any target project directory):
 tmp="$(mktemp -d)" && \
 git clone --depth 1 --branch main git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
 "$tmp/toolkit/install.sh" --target "$PWD" && \
+rm -rf "$tmp"
+```
+
+Update existing project to latest toolkit (preserve planning docs):
+
+```bash
+tmp="$(mktemp -d)" && \
+git clone --depth 1 --branch main git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
+"$tmp/toolkit/install.sh" --target "$PWD" --update --force && \
+rm -rf "$tmp"
+```
+
+Preview update only:
+
+```bash
+tmp="$(mktemp -d)" && \
+git clone --depth 1 --branch main git@github.com:toumiamine07/claude-skills---toumi.git "$tmp/toolkit" && \
+"$tmp/toolkit/install.sh" --target "$PWD" --update --dry-run && \
 rm -rf "$tmp"
 ```
 

@@ -7,18 +7,20 @@ SOURCE_ROOT="$SCRIPT_DIR"
 TARGET_DIR="."
 DRY_RUN=0
 FORCE=0
+UPDATE_MODE=0
 
 print_usage() {
   cat <<'EOF'
 Claude Product System Installer
 
 Usage:
-  ./install.sh [--target PATH] [--dry-run] [--force] [--help]
+  ./install.sh [--target PATH] [--dry-run] [--force] [--update] [--help]
 
 Options:
   --target PATH  Install into PATH (default: current directory)
   --dry-run      Print planned actions without writing files
   --force        Overwrite existing files
+  --update       Update toolkit-managed files only (skip product-planning scaffold)
   --help         Show this help text
 EOF
 }
@@ -92,6 +94,10 @@ parse_args() {
       FORCE=1
       shift
       ;;
+    --update)
+      UPDATE_MODE=1
+      shift
+      ;;
     --help)
       print_usage
       exit 0
@@ -120,6 +126,9 @@ main() {
   if [[ "$FORCE" -eq 1 ]]; then
     log "mode: force overwrite enabled"
   fi
+  if [[ "$UPDATE_MODE" -eq 1 ]]; then
+    log "mode: update (product-planning scaffold skipped)"
+  fi
 
   # Core docs and prompts
   copy_file "$SOURCE_ROOT/CLAUDE.md" "CLAUDE.md"
@@ -131,7 +140,11 @@ main() {
 
   # Subagents and workspace scaffold
   copy_tree_files ".claude/agents"
-  copy_tree_files "product-planning"
+  if [[ "$UPDATE_MODE" -eq 0 ]]; then
+    copy_tree_files "product-planning"
+  else
+    log "skip: product-planning scaffold (update mode)"
+  fi
 
   log "install complete."
 }
