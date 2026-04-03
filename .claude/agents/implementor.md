@@ -62,6 +62,15 @@ After implementation, always provide:
 9. Ready for QA review: Yes/No
 10. Evidence inputs used (artifact paths only)
 
+## UX/UI Collaboration Rule
+
+When implementation touches UI components, interactions, or any user-facing behavior:
+
+- Invoke the `ux-ui` agent before or during implementation for best practice guidance.
+- Apply `ux-ui` output to component choices, interaction states, accessibility, and consistency.
+- Verify UX acceptance criteria from `ux-ui` before completing the handoff.
+- Skip `ux-ui` for pure backend, data pipeline, or API-only implementation with no UI surface.
+
 ## Communication Style
 
 - PM-friendly and functional.

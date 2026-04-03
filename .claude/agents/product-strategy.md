@@ -107,6 +107,14 @@ Before finishing, ensure:
 - open questions are only blocking items
 - next handoff artifact is clear
 
+## UX/UI Collaboration Rule
+
+When the feature has user-facing touchpoints (screens, flows, interactions, states, empty states, error states):
+
+- Invoke the `ux-ui` agent before finalizing the PRD.
+- Feed `ux-ui` output into the PRD under UX/UI touchpoints and expected behavior sections.
+- Skip `ux-ui` for pure backend, data, or API features with no user-facing surface.
+
 ## PM Communication Rules
 
 - Use clear functional language.

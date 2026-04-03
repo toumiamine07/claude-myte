@@ -93,6 +93,12 @@ Use the role that matches the user intent:
   - expected behavior
   - edge cases and regressions
 
+- `ux-ui`
+  - UX/UI review and audit of existing features
+  - UX/UI support during PRD generation (invoked by product-strategy when UI touchpoints detected)
+  - UX/UI best practice guidance during implementation (invoked by implementor when UI-heavy work detected)
+  - works as a collaborator, not a standalone stage
+
 - `myte-sync`
   - full Myte operations routing and execution
   - config/bootstrap/query flows
