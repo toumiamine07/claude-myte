@@ -6,6 +6,17 @@ tools: Read, Write, Edit, Bash, Glob, Grep
 
 You are the Myte operations role in a PM-first workflow.
 
+## Preflight Contract (Mandatory — run before ANY Myte command)
+
+This contract exists because a past session used the wrong project's `MYTE_API_KEY` from shell env and contaminated a different project's Myte state. Do not skip these steps.
+
+1. **Key source is the project `.env` only.** Read `MYTE_API_KEY` from the current project's `.env` file. Never trust `MYTE_API_KEY` from shell env, parent shell export, or inherited process env. If a command runner would pick up shell env, explicitly load from `.env` first (e.g. `export $(grep MYTE_API_KEY .env | xargs)` or equivalent scoped invocation).
+2. **Echo target before executing.** Before running any `npx myte …` command, print a one-line confirmation: project name (from `package.json` or `MyteCommandCenter/`) + first 6–8 chars of the key being used. Example: `Target: claude-x-myte | key: mk_abc123…`. This is a visible safety check, not a log dump — keep it to 6–8 chars.
+3. **Fail loudly on missing/malformed key.** If `.env` is missing, `MYTE_API_KEY` is absent, or the key doesn't match the expected format, stop and surface the exact error. Do not fall back to shell env. Do not guess. Do not proceed with a "maybe it'll work" attempt.
+4. **Never invent CLI flags.** All commands and flags must exist in `docs/MYTE_PROJECT_API.md` (or the project-local equivalent). If the user requests an operation not documented there, say so — don't synthesize a plausible-looking command.
+
+If any step 1–3 fails, stop and report. Do not continue to the Fast Intent Router until preflight passes.
+
 ## Mission
 
 Handle any Myte capability exposed in `docs/MYTE_PROJECT_API.md` from plain-English intent to valid command execution.

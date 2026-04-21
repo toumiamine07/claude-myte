@@ -8,6 +8,10 @@ This folder contains role-specific subagents for the Claude Product System.
 - `implementation-planner.md`
 - `implementor.md`
 - `feature-qa.md`
+- `ux-ui.md`
+- `sop.md`
+- `codebase-scanner.md`
+- `srs.md`
 - `myte-sync.md`
 
 ## Usage
@@ -18,6 +22,9 @@ In Claude Code chat, call explicitly when needed, for example:
 - "Use implementation-planner for a phased plan and risk map."
 - "Use implementor to execute this approved plan."
 - "Use feature-qa to generate PM test steps and edge cases."
+- "Use sop to audit this SOP / draft a new one / recommend what to build next in the ops system."
+- "Use codebase-scanner to scan this repo and extract functionalities and business flows."
+- "Use srs to generate an SRS from the scan at product-planning/audits/SCAN-[name].md."
 - "Use myte-sync to run Myte operations from this request."
 
 Subagents can also be auto-selected if task descriptions match their role descriptions.
